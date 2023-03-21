@@ -7,8 +7,6 @@ The architecture contains three encoders. Each encoder works with the `EncoderBl
 
 Diagram of the designed architecture:
 
-![model](imgs/model_exo.png | width=100)
-
 <img src='imgs/model_exo.png' width='800'>
 
 ## Requirements
