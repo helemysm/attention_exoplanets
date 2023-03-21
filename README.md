@@ -9,14 +9,15 @@ If you decide to work with pytorchs's class (`nn.MultiheadAttention`), the impor
 
 For example:
 
-before:
+from:
 ```python 
 return attn_output, attn_output_weights.sum(dim=1) / num_heads
 ```
 
-
-after:
+to:
+```python
 return attn_output, attn_output_weights
+```
 
 
 Diagram of the designed architecture:
