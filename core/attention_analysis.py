@@ -61,6 +61,10 @@ entropies_cls /= n_docs
 
 
 n_lay = 8
+
+'''
+This method obtains the average datapoints of each head for each layer of the network.
+'''
 def get_data_points(head_data):
     xs, ys, avgs = [], [], []
     for layer in range(n_lay):
