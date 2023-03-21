@@ -23,7 +23,7 @@ That's it, so you'll get the weights to do the head analysis of any model.
 
 Diagram of the designed architecture:
 
-<img src='imgs/model_exo.png' width='800'>
+<img src='imgs/model_exo.png' width='750'>
 
 ### Evaluation
 
