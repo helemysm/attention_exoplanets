@@ -9,6 +9,8 @@ Diagram of the designed architecture:
 
 ![model](imgs/model_exo.png | width=100)
 
+<img src='imgs/model_exo.png' width='25'>
+
 ## Requirements
 
 - Python 3.6.8
