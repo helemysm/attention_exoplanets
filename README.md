@@ -3,7 +3,7 @@
 This code contains the implementation of the model used in my paper.
 
 
-Diagram of the designed architecture. The architecture contains three encoders. Each encoder works with the `EncoderBlock`  class
+Diagram of the designed architecture. The architecture contains three encoders. Each encoder works with the `EncoderBlock`  class.  This class calls the `MultiHeadedAttention` class implemented in `model.py`, but it is also possible to work with pytorch's own class (`nn.MultiheadAttention`). The important thing is to modify the return so that it returns the attention weights.
 
 ![model](imgs/model_exo.png)
 
