@@ -36,7 +36,7 @@ Diagram of the designed architecture:
 
 <img src='imgs/model_exo.png' width='800'>
 
-### Evaluation
+### Experiment
 
 This implementation includes `experiment` parameter, which is linked to `commet.ml`. If you don't want to display the results via commet, you can comment or remove everything related to this variable, and just use the `logger`.
 
