@@ -10,7 +10,10 @@ If you decide to work with pytorchs's class (`nn.MultiheadAttention`), the impor
 For example:
 
 before:
+```python 
 return attn_output, attn_output_weights.sum(dim=1) / num_heads
+```
+
 
 after:
 return attn_output, attn_output_weights
