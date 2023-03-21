@@ -9,7 +9,7 @@ Diagram of the designed architecture:
 
 ![model](imgs/model_exo.png | width=100)
 
-<img src='imgs/model_exo.png' width='25'>
+<img src='imgs/model_exo.png' width='200'>
 
 ## Requirements
 
