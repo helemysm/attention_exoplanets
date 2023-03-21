@@ -19,6 +19,7 @@ to:
 return attn_output, attn_output_weights
 ```
 
+That's it, so you'll get the weights to do the head analysis of any model.
 
 Diagram of the designed architecture:
 
