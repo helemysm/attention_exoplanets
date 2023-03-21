@@ -27,7 +27,7 @@ Diagram of the designed architecture:
 
 ### Evaluation
 
-The model parameter or argument must be defined before calling evaluation method of the `validation` class. Also, this method requires the `experiment` argument, which is linked to `commet.ml`. If you don't want to display the results via commet, you can comment or remove everything related to this variable, and just use the `logger`.
+The model parameter or argument must be defined before calling `evaluation method of the `validation` class. Also, this method requires the `experiment` argument, which is linked to `commet.ml`. If you don't want to display the results via commet, you can comment or remove everything related to this variable, and just use the `logger`.
 
 ## Requirements
 
