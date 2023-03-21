@@ -19,6 +19,17 @@ to:
 return attn_output, attn_output_weights
 ```
 
+or return no average attention weights over heads:
+
+```python
+if need_weights:
+  attn_output_weights = attn_output_weights.view(bsz, num_heads, tgt_len, src_len)
+  return attn_output, attn_output_weights
+```
+
+
+
+
 That's it, so you'll get the weights to do the head analysis of any model.
 
 Diagram of the designed architecture:
