@@ -60,7 +60,6 @@ entropies /= n_docs
 entropies_cls /= n_docs
 
 
-n_lay = 8
 
 '''
 This method obtains the average datapoints of each head for each layer of the network.
@@ -110,6 +109,10 @@ def avg_attention(atts_, h_k, l_i):
 
 
 #### 
+
+
+n_lay = 8
+
 xs, es, avg_es = get_data_points(entropies)
 xs, es_cls, avg_es_cls = get_data_points(entropies_cls)
 
