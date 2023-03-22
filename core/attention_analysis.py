@@ -82,10 +82,9 @@ def avg_attention(atts_, h_k, l_i):
     params: attentions (model output)
     ----
     return:
-    data_map_list_ = vector of avg attention for h_k
+    data_map_list_ = vector of avg attention for l_i and h_k
     '''
     data_map_signals = []
-
     for m in tqdm(range(len(atts_))):
 
         cont_true = cont_true+1
@@ -96,13 +95,10 @@ def avg_attention(atts_, h_k, l_i):
             data_map.append(data_.T[i].mean())
 
         data_map_list.append(data_map)
-
         data_map_list = np.array(data_map_list).reshape(100,-1)
-
         data_map_list_ = []
         for i in range(len(data_map_list)):
             data_map_list_.append(data_map_list[i].mean())
-    
     data_map_signals.append(data_map_list_)
     
     return data_map_signals    
