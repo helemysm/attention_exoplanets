@@ -42,6 +42,7 @@ def attention(query, key, value, mask=None, dropout=None):
 class MultiHeadedAttention(nn.Module):
     """
     Reference: https://nlp.seas.harvard.edu/2018/04/03/attention.html
+   
     """
     def __init__(self, h, d_model, dropout=0.1):
         "Take in model size and number of heads."
@@ -54,7 +55,10 @@ class MultiHeadedAttention(nn.Module):
         self.dropout = nn.Dropout(p=dropout)
         
     def forward(self, query, key, value, mask=None):
-        
+        """
+        Attention function on a set of queries simultaneously, packed together into a matrix Q. 
+        The keys and values are also packed together into matrices K and V.
+        """
         if mask is not None:
             mask = mask.unsqueeze(1)
         nbatches = query.size(0)
