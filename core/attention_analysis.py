@@ -7,7 +7,7 @@ import matplotlib
 import numpy as np
 import seaborn as sns
 import sklearn
-
+import random
 from matplotlib import pyplot as plt
 from matplotlib import cm
 from sklearn import manifold
@@ -73,6 +73,40 @@ def get_data_points(head_data):
             xs.append(1 + layer)
         avgs.append(head_data[layer].mean())
     return xs, ys, avgs
+
+'''
+This method computes the average of the attentions for a specific layer l_i and head k_head
+'''
+
+def avg_attention(atts_, h_k, l_i):
+    '''
+    params: attentions (model output)
+    ----
+    return:
+    data_map_list_ = vector of avg attention for h_k
+    '''
+    data_map_signals = []
+
+    for m in tqdm(range(len(atts_))):
+
+        cont_true = cont_true+1
+        data_map_list = []
+        data_=atts_[m][0][l_i][h_k].squeeze(0).numpy()
+        data_map = []
+        for i in range(len(data_)):
+            data_map.append(data_.T[i].mean())
+
+        data_map_list.append(data_map)
+
+        data_map_list = np.array(data_map_list).reshape(100,-1)
+
+        data_map_list_ = []
+        for i in range(len(data_map_list)):
+            data_map_list_.append(data_map_list[i].mean())
+    
+    data_map_signals.append(data_map_list_)
+    
+    return data_map_signals    
 
 
 #### 
