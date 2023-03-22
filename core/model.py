@@ -146,12 +146,10 @@ class ModulesBlock(nn.Module):
             device = x.device
             src =  x.transpose(0, 1)     # [seq_len, N, features]
             
-            
             """
             add mask or remove if it is not necesary
             """
             mask = self.generate_square_subsequent_mask(seq_size).to(device)
-
             output, self.attn_weights = self.layer(src, src, src)#, attn_mask = mask)
             output = output.transpose(0, 1)     # [N, seq_len, features]
             
@@ -264,20 +262,17 @@ class EncoderLayer(nn.Module):
         self.config = config
         self.d_model = d_model
         self.seq_size = seq_len
-        
         self.pe = config.type_pe.time_pe
-        
         self.input_embedding = nn.Conv1d(input_features, d_model, 1)
-        
         self.positional_encoding = PositionalEncoding(d_model, seq_len)
         
         embedding_size = d_model
-  
         self.position_embedding = nn.Embedding(num_embeddings = seq_len, embedding_dim = d_model)
         
         """
         "Produce N identical layers."
         """
+        
         self.blocks = nn.ModuleList([
             EncoderBlock(d_model, n_heads, dropout_rate) for _ in range(n_layers)
         ])
@@ -326,9 +321,7 @@ class EncoderLayer(nn.Module):
         
         all_attn_weights_copy = all_attn_weights.copy() 
         all_attn_weights_copy = torch.Tensor(np.array(all_attn_weights_copy))
-        
         all_attn_weights_copy = all_attn_weights_copy.transpose(0,1)
-        
         
         return x, all_attn_weights_copy #attn_weights
 
@@ -392,23 +385,16 @@ class model_clf(nn.Module):
         #join flux and centroid for local view
         x = torch.cat([x, x_cen], -1)
         x = x.transpose(1, 2)
-      
         x, attn_weights = self.encoder(x,  x_timel)
         
         #join flux and centroid for local view
         x_global = torch.cat([x_global, x_cen_global], -1)
         x_global = x_global.transpose(1, 2)
         x_global, attn_weights_global = self.encoder_global(x_global, x_timeg)
-        
-       
         out_local = x.reshape(x.shape[0], -1)
         out_global = x_global.reshape(x_global.shape[0], -1)
-        
         out_stell = x_stell.reshape(x_stell.shape[0], -1)
-        
         out = torch.cat([out_local, out_global, out_stell], dim=1)
-        
-        
         x = self.clf(out)
         
         return x, attn_weights, attn_weights_global, all_attn_weights_st
