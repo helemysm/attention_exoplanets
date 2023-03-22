@@ -5,7 +5,7 @@ from tqdm import tqdm
 
 
 
-
+## build the sh file for downloading the light curves
 def download_lc(catalog, output ):
     
     FLAGS_output_file = 'get_tess_exo.sh'
