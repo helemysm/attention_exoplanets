@@ -8,7 +8,7 @@ from tqdm import tqdm
 ## build the sh file for downloading the light curves
 def download_lc(catalog, output ):
     
-    FLAGS_output_file = 'get_tess_exo.sh'
+    FLAGS_output_file = 'tess_lcs.sh'
     _wget_ = 'curl -C - -L -o '
     url_ = 'https://mast.stsci.edu/api/v0.1/Download/file/?uri=mast:TESS/product/'
 
