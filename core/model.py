@@ -79,7 +79,10 @@ class MultiHeadedAttention(nn.Module):
     
 class ScheduledOptim:
     
+    
     """
+     To initialize each model, we set a high learning rate of alpha = 0.001. 
+
     Reference: `jadore801120/attention-is-all-you-need-pytorch \
     <https://github.com/jadore801120/attention-is-all-you-need-pytorch/blob/master/transformer/Optim.py>`_
     """
@@ -108,8 +111,8 @@ class ScheduledOptim:
     
 class ModulesBlock(nn.Module):
     
-    """ ModulesBlok of Transformer encoder that encompasses one or more EncoderBlock blocks.
-    
+    """
+    ModulesBlok of Transformer encoder that encompasses one or more EncoderBlock blocks.
     """
     
     def __init__(self, layer: nn.Module, embed_dim: int, p=0.1) -> None:
@@ -165,16 +168,19 @@ class ModulesBlock(nn.Module):
 class PositionwiseFeedForward(nn.Module):
     
         """
-        In addition to attention sub-layers, each layers in encoder contains a fully connected feed-forward network
-        
+        In addition to attention sub-layers, each layers in encoder 
+        contains a fully connected feed-forward network  
         """
+        
     def __init__(self, hidden_size, dropout):
+        
         """
         Input arguments
         ----------
         hidden_size : size of embedding from CNN defined in encoderlayer
         dropout : probability of an element to be zeroed, dropout
         """
+        
         super().__init__()
         self.fc = nn.Sequential(
         nn.Linear(hidden_size, hidden_size*2),
@@ -192,10 +198,11 @@ class PositionwiseFeedForward(nn.Module):
 
 
 class EncoderBlock(nn.Module):
-    """
-    Call to the multiheadattention module.
     
     """
+    Call to the multiheadattention module.    
+    """
+    
     def __init__(self, embed_dim: int, num_head: int, dropout_rate=0.1) -> None:
         
         super(EncoderBlock, self).__init__()
@@ -206,10 +213,12 @@ class EncoderBlock(nn.Module):
         self.ffn = ModulesBlock(PositionwiseFeedForward(embed_dim), embed_dim, p=dropout_rate)
 
     def forward(self, x: torch.Tensor) -> torch.Tensor:
+        
         """
         return:
         x: [N, seq_len, features], attention weights for x [N, seq_len, Nlayers, Nheads]
         """
+        
         x, attn_weights = self.attention(x)
         return x, attn_weights
 
@@ -252,10 +261,11 @@ class ClassificationModule(nn.Module):
 
 
 class EncoderLayer(nn.Module):
+    
      """
-     Core encoder is a stack of N layers
-     
+     Core encoder is a stack of N layers 
      """
+        
     def __init__(self, input_features, seq_len, n_heads, n_layers, d_model=512, dropout_rate=0.2, config) -> None:
         super(EncoderLayer, self).__init__()
         
@@ -270,7 +280,7 @@ class EncoderLayer(nn.Module):
         self.position_embedding = nn.Embedding(num_embeddings = seq_len, embedding_dim = d_model)
         
         """
-        "Produce N identical layers."
+        "With ModuleList, we produce N identical layers."
         """
         
         self.blocks = nn.ModuleList([
@@ -291,6 +301,7 @@ class EncoderLayer(nn.Module):
         """
         return: x: [B, seq_len, features], attention weights for x [B, seq_len, Nlayers, Nheads]
         """
+        
         x = self.input_embedding(x) # cnn embedding
         x = x.transpose(1, 2)
         
@@ -330,7 +341,6 @@ class model_clf(nn.Module):
 
      """
      Here we define tha class that takes in hyperparameters and produces the full model.
-     
      """
         
     def __init__(
