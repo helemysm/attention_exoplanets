@@ -40,6 +40,11 @@ if need_weights:
 
 That's it, so you'll get the weights to do the head analysis of any model.
 
+### File guide
+
+`model.py`: creation of each component of the neural network. The encoders for each piece of information are implemented in this class.
+
+`attention_analysis.py`: calculation of the entropy of each layer and their heads
 
 ### Experiment
 
