@@ -50,8 +50,6 @@ This implementation includes `experiment` parameter, which is linked to `commet.
 - numpy 1.19
 - commet_ml 3.8.1
 
- [[1]](#1).
-
 ## References
 <a id="1">[1]</a> 
 Vaswani, A., Shazeer, N., Parmar, N., Uszkoreit, J., Jones, L., Gomez, A. N., ... & Polosukhin, I. (2017). Attention is all you need. Advances in neural information processing systems, 30..
