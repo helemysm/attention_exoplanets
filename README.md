@@ -44,9 +44,9 @@ That's it, so you'll get the weights to do the head analysis of any model.
 
 `model.py`: creation of each component of the neural network. The encoders for each piece of information are implemented in this class.
 
-`attention_analysis.py`: calculation of the entropy of each layer and their heads
-
 `network.py`: In this class we instantiate the model and create complete neural network.
+
+`attention_analysis.py`: calculation of the entropy of each layer and their heads
 
 `positional_encoding.py`: creation of two types of positional encoding, one considers the $t$ of [[1]](#1) and the second considers the observation time $t_{time}$.
 
