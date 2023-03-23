@@ -1,5 +1,8 @@
 # A Transformer-based classification for planetary transit signals
 
+The self-attention mechanism is an DL technique that attempts to mimic the action of selectively focusing on some relevant things while ignoring others. Models, such as the Transformer architecture, were recently proposed for sequential data with successful results. This is an implementation to classify exoplanet transit signals using Deep Learning methods. 
+
+
 This code contains the implementation of the model.
 
 
