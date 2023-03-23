@@ -1,6 +1,4 @@
 Python 3.6.8
 Torch 1.8
 numpy 1.19
-dill==0.3.3
-pandas 1.1.4
 commet_ml 3.8
