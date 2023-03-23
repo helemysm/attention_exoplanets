@@ -50,6 +50,9 @@ That's it, so you'll get the weights to do the head analysis of any model.
 
 `positional_encoding.py`: creation of two types of positional encoding, one considers the $t$ of [[1]](#1) and the second considers the observation time $t_{time}$.
 
+`mask.py`: file with methods for masking out the subsequent info. In our current implementation we don't use mask. In a future work we will implement different types of masks for different attention mechanisms. This in order to scale to longer sequences.
+
+
 ### Experiment
 
 This implementation includes `experiment` parameter, which is linked to `commet.ml`. If you don't want to display the results via commet, you can comment or remove everything related to this variable, and just use the `logger`.
