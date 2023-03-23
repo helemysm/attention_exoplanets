@@ -46,6 +46,10 @@ That's it, so you'll get the weights to do the head analysis of any model.
 
 `attention_analysis.py`: calculation of the entropy of each layer and their heads
 
+`network.py`: In this class we instantiate the model and create the neural network ready to learn.
+
+`positional_encoding.py`: creation of two types of positional encoding, one considers the t of [[1]](#1) and the second considers the observation time $t_ime$.
+
 ### Experiment
 
 This implementation includes `experiment` parameter, which is linked to `commet.ml`. If you don't want to display the results via commet, you can comment or remove everything related to this variable, and just use the `logger`.
