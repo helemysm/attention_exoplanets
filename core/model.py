@@ -226,7 +226,7 @@ class EncoderBlock(nn.Module):
 class ClassificationModule(nn.Module):
     
     """
-    Call to the multiheadattention module.
+    Creation of the final layer.
     ----------
     return:
     x: [N, seq_len, features]
