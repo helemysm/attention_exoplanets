@@ -3,10 +3,15 @@
 The self-attention mechanism is an DL technique that attempts to mimic the action of selectively focusing on some relevant things while ignoring others. Models, such as the Transformer architecture [[1]](#1), were recently proposed for sequential data with successful results. This is an implementation to classify exoplanet transit signals using Deep Learning methods. 
 
 
-This code contains the implementation of the model.
+This code contains the implementation of the model which contains three encoders. The general outline of the architecture is shown in the diagram below.
 
 
-The architecture contains three encoders. Each encoder works with the `EncoderBlock`  class.  This class calls the `MultiHeadedAttention` class implemented in `model.py`, but it is also possible to work with pytorch's own class (`nn.MultiheadAttention`). 
+Diagram of the designed architecture:
+
+<img src='imgs/model_exo.png' width='800'>
+
+
+Each encoder works with the `EncoderBlock`  class.  This class calls the `MultiHeadedAttention` class implemented in `model.py`, but it is also possible to work with pytorch's own class (`nn.MultiheadAttention`). 
 
 If you decide to work with pytorchs's class (`nn.MultiheadAttention`), the important is to modify the return so that it returns the attention weights. Also, change the return to obtain the weights of each head (in class `functional.py` from pytorch):
 
@@ -35,9 +40,6 @@ if need_weights:
 
 That's it, so you'll get the weights to do the head analysis of any model.
 
-Diagram of the designed architecture:
-
-<img src='imgs/model_exo.png' width='800'>
 
 ### Experiment
 
