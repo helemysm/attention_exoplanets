@@ -48,7 +48,7 @@ That's it, so you'll get the weights to do the head analysis of any model.
 
 `network.py`: In this class we instantiate the model and create the neural network ready to learn.
 
-`positional_encoding.py`: creation of two types of positional encoding, one considers the t of [[1]](#1) and the second considers the observation time $t_ime$.
+`positional_encoding.py`: creation of two types of positional encoding, one considers the $t$ of [[1]](#1) and the second considers the observation time $t_{time}$.
 
 ### Experiment
 
