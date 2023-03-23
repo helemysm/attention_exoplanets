@@ -55,6 +55,15 @@ class Network:
 
     
     def fit(self, loader: Dict[str, DataLoader], epochs: int, checkpoint_path: str = None, validation: bool = True) -> None:
+     '''
+     Method to the model train given parameters and datasets
+     
+     parameters
+     loader: DataLoader 
+     epochs: number of epochs to train the model
+     checkpoint_path: model previously trained
+     
+     '''
 
         len_of_train_dataset = len(loader["train"].dataset)
         epochs = epochs + self._start_epoch
