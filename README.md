@@ -11,7 +11,7 @@ Diagram of the designed architecture:
 <img src='imgs/model_exo.png' width='800'>
 
 
-The main module is in the model.py file, which contains the modules needed to build each encoder. Each encoder works with the `EncoderBlock`  class.  This class calls the `MultiHeadedAttention` class implemented in `model.py`, but it is also possible to work with pytorch's own class (`nn.MultiheadAttention`). 
+The main module is in the `model.py file, which contains the modules needed to build each encoder. Each encoder works with the `EncoderBlock`  class.  This class calls the `MultiHeadedAttention` class implemented in `model.py`, but it is also possible to work with pytorch's own class (`nn.MultiheadAttention`). 
 
 If you decide to work with pytorchs's class (`nn.MultiheadAttention`), the important is to modify the return so that it returns the attention weights. Also, change the return to obtain the weights of each head (in class `functional.py` from pytorch):
 
